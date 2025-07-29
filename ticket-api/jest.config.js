@@ -14,6 +14,8 @@ module.exports = {
     '!**/*.module.ts',
     '!**/*.spec.ts',
     '!**/*.e2e-spec.ts',
+    '!**/app.module.ts',
+    '!**/database/database.module.ts',
   ],
   coverageDirectory: '../coverage',
   testEnvironment: 'node',

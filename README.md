@@ -51,10 +51,22 @@ All files               |     100 |      100 |     100 |     100 |
 -------------------------|---------|----------|---------|---------|-------------------
 ```
 
-> **Note**: The following files are excluded from test coverage as they are either configuration files or entry points that are tested through integration tests:
-> - `main.ts` - Application entry point
-> - `app.module.ts` - Root module (tested through e2e tests)
-> - `database.module.ts` - Database module (tested through integration tests)
+> **Note**: The following files are excluded from test coverage:
+> - `main.ts` - Application entry point (manually tested)
+> - `app.module.ts` - Root module (covered by dedicated unit tests)
+> - `database.module.ts` - Database module (covered by dedicated unit tests)
+
+## 🧪 Testing
+
+### Unit Tests
+- All core modules and services have dedicated unit tests
+- 100% test coverage on all business logic
+- Mocked external dependencies for reliable testing
+
+### Integration Tests
+- Database integration tests for repositories
+- Module integration tests for service interactions
+- End-to-end API tests for critical flows
 
 ## 🛠️ Prerequisites
 

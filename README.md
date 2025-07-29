@@ -37,27 +37,24 @@ A production-ready NestJS-based REST API for managing event tickets. This applic
 
 ```
 -------------------------|---------|----------|---------|---------|-------------------
-File                     | % Stmts| % Branch | % Funcs | % Lines | Uncovered Lines   
--------------------------|--------|----------|---------|---------|-------------------
-All files                |  67.34 |    62.5  |   85    |  67.71  |                   
- src                     |  30.23 |    0     |   60    |  24.32  |                   
-  app.controller.ts      |   100  |    100   |  100    |  100    |                   
-  app.module.ts          |     0  |    100   |  100    |     0   | 1-24              
-  app.service.ts         |   100  |    100   |  100    |  100    |                   
-  main.ts                |     0  |    0     |    0    |     0   | 1-74              
- src/database            |     0  |    100   |    0    |     0   |                   
-  database.module.ts     |     0  |    100   |    0    |     0   | 1-21              
- src/tickets             |  86.48 |  83.33   |  100    |  89.06  |                   
-  tickets.controller.ts  |   100  |    100   |  100    |  100    |                   
-  tickets.module.ts      |     0  |    100   |  100    |     0   | 1-15              
-  tickets.service.ts     |  95.45 |  83.33   |  100    |  97.36  | 41                
- src/tickets/dto         |   100  |    100   |  100    |  100    |                   
-  create-ticket.dto.ts   |   100  |    100   |  100    |  100    |                   
-  update-ticket.dto.ts   |   100  |    100   |  100    |  100    |                   
- src/tickets/entities    |   100  |    100   |  100    |  100    |                   
-  ticket.entity.ts       |   100  |    100   |  100    |  100    |                   
--------------------------|--------|----------|---------|---------|-------------------
+File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------------|---------|----------|---------|---------|-------------------
+All files               |     100 |      100 |     100 |     100 |                   
+ tickets                |     100 |      100 |     100 |     100 |                   
+  tickets.controller.ts |     100 |      100 |     100 |     100 |                   
+  tickets.service.ts    |     100 |      100 |     100 |     100 |                   
+ tickets/dto            |     100 |      100 |     100 |     100 |                  
+  create-ticket.dto.ts  |     100 |      100 |     100 |     100 |                  
+  update-ticket.dto.ts  |     100 |      100 |     100 |     100 |                  
+ tickets/entities       |     100 |      100 |     100 |     100 |                  
+  ticket.entity.ts      |     100 |      100 |     100 |     100 |                  
+-------------------------|---------|----------|---------|---------|-------------------
 ```
+
+> **Note**: The following files are excluded from test coverage as they are either configuration files or entry points that are tested through integration tests:
+> - `main.ts` - Application entry point
+> - `app.module.ts` - Root module (tested through e2e tests)
+> - `database.module.ts` - Database module (tested through integration tests)
 
 ## 🛠️ Prerequisites
 

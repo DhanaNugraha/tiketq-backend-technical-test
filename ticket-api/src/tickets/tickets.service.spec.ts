@@ -128,6 +128,13 @@ describe('TicketsService', () => {
 
       await expect(service.findOne('999')).rejects.toThrow(NotFoundException);
     });
+
+    it('should handle database errors in findOne', async () => {
+      const dbError = new Error('Database connection failed');
+      mockTicketRepository.findOne.mockRejectedValue(dbError);
+
+      await expect(service.findOne('1')).rejects.toThrow('Failed to fetch ticket: Database connection failed');
+    });
   });
 
   describe('update', () => {
@@ -166,6 +173,19 @@ describe('TicketsService', () => {
       mockTicketRepository.save.mockRejectedValue(dbError);
 
       await expect(service.update('1', updateTicketDto)).rejects.toThrow('Failed to update ticket: Database error');
+    });
+
+    it('should propagate NotFoundException from findOne', async () => {
+      const updateTicketDto: UpdateTicketDto = {
+        eventName: 'Non-existent Event',
+      };
+      
+      const notFoundError = new NotFoundException('Ticket not found');
+      jest.spyOn(service, 'findOne').mockRejectedValue(notFoundError);
+
+      await expect(service.update('999', updateTicketDto)).rejects.toThrow(notFoundError);
+      expect(service.findOne).toHaveBeenCalledWith('999');
+      expect(repository.save).not.toHaveBeenCalled();
     });
   });
 

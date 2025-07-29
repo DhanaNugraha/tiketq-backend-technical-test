@@ -165,9 +165,35 @@ export class TicketsController {
   })
   @ApiBody({
     type: UpdateTicketDto,
+    schema: {
+      type: 'object',
+      properties: {
+        eventName: { 
+          type: 'string',
+          description: 'The updated name of the event',
+          example: 'Updated Event Name'
+        },
+        location: { 
+          type: 'string',
+          description: 'The updated location of the event',
+          example: 'New Venue, Downtown'
+        },
+        time: { 
+          type: 'string',
+          format: 'date',
+          description: 'The updated date of the event in YYYY-MM-DD format',
+          example: '2025-08-15'
+        },
+        isUsed: {
+          type: 'boolean',
+          description: 'Indicates if the ticket has been used',
+          example: true
+        }
+      }
+    },
     examples: {
       updateLocation: {
-        summary: 'Update location',
+        summary: 'Update location and time',
         value: {
           location: 'New Venue, Downtown',
           time: '2025-08-15'
@@ -176,6 +202,15 @@ export class TicketsController {
       markAsUsed: {
         summary: 'Mark as used',
         value: {
+          isUsed: true
+        }
+      },
+      fullUpdate: {
+        summary: 'Update all fields',
+        value: {
+          eventName: 'Updated Event Name',
+          location: 'New Venue, Downtown',
+          time: '2025-08-15',
           isUsed: true
         }
       }

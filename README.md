@@ -80,7 +80,6 @@ All files               |     100 |      100 |     100 |     100 |
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd ticket-api
    ```
 
 2. **Install dependencies**
